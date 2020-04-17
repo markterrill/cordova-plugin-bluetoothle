@@ -896,11 +896,14 @@ public class BluetoothLePlugin extends CordovaPlugin {
       return;
     }
 
+    Log.d("BLE", "requestPermissionAction started");
     permissionsCallback = callbackContext;
 
     if (Build.VERSION.SDK_INT >= 29) { // theoretically Q
+      Log.d("BLE", "requestPermissionAction started >=v29");
       cordova.requestPermission(this, REQUEST_ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION);
     } else {
+      Log.d("BLE", "requestPermissionAction started <v29");
       cordova.requestPermission(this, REQUEST_ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION);
     }
   }
